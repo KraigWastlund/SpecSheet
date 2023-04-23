@@ -34,6 +34,7 @@
 		77E08DFF29F4A01B001A51FD /* DBC in Frameworks */ = {isa = PBXBuildFile; productRef = 77E08DFE29F4A01B001A51FD /* DBC */; };
 		77E08E0429F4BF80001A51FD /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08E0229F4BF80001A51FD /* Location+CoreDataClass.swift */; };
 		77E08E0529F4BF80001A51FD /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */; };
+		77E8E12929F5B53600C614DF /* HouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8E12829F5B53600C614DF /* HouseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		77E08DE429F49FAB001A51FD /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		77E08E0229F4BF80001A51FD /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		77E8E12829F5B53600C614DF /* HouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		77E08DB729F4937D001A51FD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				77E8E12729F5B52500C614DF /* House */,
 				77E08E0129F4BBA2001A51FD /* Houses */,
 				77E08DAC29F49376001A51FD /* SideNavAndRootModule */,
 			);
@@ -197,6 +200,14 @@
 				77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		77E8E12729F5B52500C614DF /* House */ = {
+			isa = PBXGroup;
+			children = (
+				77E8E12829F5B53600C614DF /* HouseView.swift */,
+			);
+			path = House;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				77E08DC429F49595001A51FD /* AppSettings.swift in Sources */,
 				77E08E0529F4BF80001A51FD /* Location+CoreDataProperties.swift in Sources */,
 				77E08DA329F492AC001A51FD /* Persistence.swift in Sources */,
+				77E8E12929F5B53600C614DF /* HouseView.swift in Sources */,
 				77E08DB429F49377001A51FD /* SideNavAndRootModuleView.swift in Sources */,
 				77E08E0429F4BF80001A51FD /* Location+CoreDataClass.swift in Sources */,
 				77E08DC229F49581001A51FD /* AuthCredentials.swift in Sources */,

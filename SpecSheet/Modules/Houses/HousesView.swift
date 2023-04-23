@@ -14,17 +14,23 @@ struct HousesView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Location.dateLastModified, ascending: true)],
+        predicate: NSPredicate(format: "parentID == nil", argumentArray: nil),
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var houses: FetchedResults<Location>
 
     var body: some View {
         List {
-            ForEach(items) { item in
+            ForEach(houses) { house in
                 NavigationLink {
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    HouseView(house: house)
                 } label: {
-                    Text(item.timestamp!, formatter: itemFormatter)
+                    VStack(alignment: .leading) {
+                        Text(house.title)
+                            .font(.title3)
+                        Text("Date Created: \(house.dateCreated, formatter: itemFormatter)")
+                            .font(.footnote)
+                    }
                 }
             }
             .onDelete(perform: deleteItems)
@@ -45,8 +51,10 @@ struct HousesView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Location(context: viewContext)
+            newItem.dateCreated = Date()
+            newItem.dateLastModified = Date()
+            newItem.title = "Blah"
 
             do {
                 try viewContext.save()
@@ -61,7 +69,7 @@ struct HousesView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { houses[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -75,41 +83,9 @@ struct HousesView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
+let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short
     formatter.timeStyle = .medium
     return formatter
 }()
-
-// TODO: KRAIG - JUST ADDED CORE DATA MODEL - GET THE ABOVE LIST FETCHING IT AFTER YOU MAKE SOME TEMP DATA IN APP FILE
-
-struct Location {
-    let id: UUID
-    let parentId: UUID?
-    let title: String
-    let imageUrls: [URL]
-    let description: String = ""
-    let dateLastModified = Date()
-    let dateCreated = Date()
-    let dateArchived: Date? = nil
-}
-
-private func buildData() -> [Location] {
-    
-    var locations = [Location]()
-    
-    for i in 0...10 {
-        let id = UUID()
-        let house = Location(id: id, parentId: nil, title: "House \(i)", imageUrls: [])
-        let parentId = id
-        for j in 0...10 {
-            let roomId = UUID()
-            let room = Location(id: roomId, parentId: parentId, title: "Room \(j)", imageUrls: [])
-            locations.append(room)
-        }
-        locations.append(house)
-    }
-    
-    return locations
-}

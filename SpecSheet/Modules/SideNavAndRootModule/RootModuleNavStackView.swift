@@ -50,6 +50,7 @@ struct RootModuleNavStackView: View {
 //                    }
 //                }
         }
+        .accentColor(Color.yellow)
     }
 }
 
