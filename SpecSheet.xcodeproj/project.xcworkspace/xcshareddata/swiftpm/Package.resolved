@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "dbc-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/busybusy/DBC-Apple",
+      "state" : {
+        "revision" : "a3be9200b6a281b484b0afc2f4e8197845b447ed",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}
