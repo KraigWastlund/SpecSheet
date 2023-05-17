@@ -22,9 +22,7 @@ struct HousesView: View {
     var body: some View {
         List {
             ForEach(houses) { house in
-                NavigationLink {
-                    HouseView(house: house)
-                } label: {
+                NavigationLink(value: house) {
                     VStack(alignment: .leading) {
                         Text(house.title)
                             .font(.title3)
@@ -33,7 +31,7 @@ struct HousesView: View {
                     }
                 }
             }
-            .onDelete(perform: deleteItems)
+            .onDelete(perform: deleteLocations)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -41,7 +39,7 @@ struct HousesView: View {
                     .accentColor(.yellow)
             }
             ToolbarItem {
-                Button(action: addItem) {
+                Button(action: addLocation) {
                     Label("Add Item", systemImage: "plus")
                 }
                 .accentColor(.yellow)
@@ -49,7 +47,8 @@ struct HousesView: View {
         }
     }
 
-    private func addItem() {
+    private func addLocation() {
+        // TODO: KRAIG -- PRESENT A CREATE LOCATION VIEW
         withAnimation {
             let newItem = Location(context: viewContext)
             newItem.dateCreated = Date()
@@ -67,7 +66,7 @@ struct HousesView: View {
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteLocations(offsets: IndexSet) {
         withAnimation {
             offsets.map { houses[$0] }.forEach(viewContext.delete)
 

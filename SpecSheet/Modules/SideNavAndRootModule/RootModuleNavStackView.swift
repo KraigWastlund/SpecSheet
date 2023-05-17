@@ -49,6 +49,13 @@ struct RootModuleNavStackView: View {
 //                        showSideNav.toggle()
 //                    }
 //                }
+            
+            .navigationDestination(for: Location.self, destination: { location in
+                LocationView(path: $path, location: location)
+            })
+            .navigationDestination(for: Spec.self, destination: { spec in
+                SpecView(path: $path, spec: spec)
+            })
         }
         .accentColor(Color.yellow)
     }

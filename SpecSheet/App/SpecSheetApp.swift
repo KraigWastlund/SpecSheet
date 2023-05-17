@@ -32,12 +32,27 @@ extension SpecSheetApp {
         let fr = Location.fetchRequest()
         if let locations = try? persistenceController.container.viewContext.fetch(fr) {
             if locations.isEmpty {
-                buildLocations(with: persistenceController.container.viewContext)
+                let userId = buildUsers(with: persistenceController.container.viewContext)
+                buildLocationsAndSpecs(with: persistenceController.container.viewContext, for: userId)
             }
         }
     }
     
-    private func buildLocations(with context: NSManagedObjectContext) {
+    private func buildUsers(with context: NSManagedObjectContext) -> UUID {
+        let user = User(context: context)
+        user.id = UUID()
+        user.dateCreated = Date()
+        user.dateLastModified = Date()
+        user.firstName = "Bob"
+        user.lastName = "Marley"
+        user.username = "bmarley"
+        try! context.obtainPermanentIDs(for: [user])
+        try! context.save()
+        
+        return user.id
+    }
+    
+    private func buildLocationsAndSpecs(with context: NSManagedObjectContext, for userId: UUID) {
         var locations = [Location]()
         for i in 1...10 {
             let house = Location(context: context)
@@ -45,7 +60,7 @@ extension SpecSheetApp {
             house.dateCreated = Date()
             house.dateLastModified = Date()
             house.title = "House \(i)"
-            house.imageURLs = ["https://picsum.photos/200/300?random=\(i)"] as NSObject
+            house.imageURLs = ["https://picsum.photos/200/300?random=\(i)"] as [String]
             house.locationDescription = """
             This stunning house boasts 4 spacious bedrooms and 3 beautifully appointed bathrooms, making it the perfect home for a growing family or those who love to entertain guests. As you approach the front of the house, you'll be greeted by a grand circular driveway, which not only provides ample parking space but also adds a touch of elegance to the property.
 
@@ -59,6 +74,29 @@ extension SpecSheetApp {
 
             Overall, this house offers a perfect combination of luxury, comfort, and style. With its spacious bedrooms, modern amenities, and beautiful outdoor space, it's the perfect place to call home.
             """
+            locations.append(house)
+            
+            // Specs
+            
+            let titlesAndCategories: [String:String] = ["GE Fridge 3443": "Appliance", "Redwood Flooring Model 333W": "Flooring", "Kwal Howels - Sunset Green": "Paint", "Garrett's Cabinets": "Cabinets"]
+            
+            for _ in 1...10 {
+                let titleAndCategory = titlesAndCategories.randomElement()!
+                let spec = Spec(context: context)
+                spec.id = UUID()
+                spec.locationID = house.id
+                spec.title = titleAndCategory.key
+                spec.category = titleAndCategory.value
+                spec.createdBy = userId
+                spec.dateCreated = Date()
+                spec.dateLastModified = Date()
+                spec.specDescription = """
+                This is the long description for this specificiation.  This might tell the sub contractor special instructions regarding this specification.
+                This is the descrioption for the \(spec.title) spec for house \(i)
+                """
+            }
+            
+            // Rooms
             
             for j in 1...10 {
                 let room = Location(context: context)
@@ -67,11 +105,21 @@ extension SpecSheetApp {
                 room.dateCreated = Date()
                 room.dateLastModified = Date()
                 room.title = "Room \(j)"
-                room.locationDescription = "This is the room number \(j) in house \(i)"
-                room.imageURLs = ["https://picsum.photos/200/300?random=\(i + j)", "https://picsum.photos/200/300?random=\(i + j)", "https://picsum.photos/200/300?random=\(i + j)"] as NSObject
+                room.locationDescription = "This is the room number \(j) in house \(i).  Here's some more text just to make it more interesting."
+                room.imageURLs = ["https://picsum.photos/200/300?random=\(i + j)", "https://picsum.photos/200/300?random=\(i + j)", "https://picsum.photos/200/300?random=\(i + j)"] as [String]
                 locations.append(room)
+                
+                for m in 1...10 {
+                    let subLocation = Location(context: context)
+                    subLocation.id = UUID()
+                    subLocation.parentID = room.id
+                    subLocation.dateCreated = Date()
+                    subLocation.dateLastModified = Date()
+                    subLocation.title = "Sub Location \(m)"
+                    subLocation.locationDescription = "This is the sub location for room \(j) in house \(i).  Here's the awesome description of this sub location. :)"
+                    subLocation.imageURLs = ["https://picsum.photos/200/300?random=\(m + i + j)", "https://picsum.photos/200/300?random=\(m + i + j + 1)", "https://picsum.photos/200/300?random=\(m + i + j + 2)"] as [String]
+                }
             }
-            locations.append(house)
         }
         
         try! context.obtainPermanentIDs(for: locations)

@@ -19,7 +19,7 @@ extension Location {
     @NSManaged public var id: UUID
     @NSManaged public var parentID: UUID?
     @NSManaged public var title: String
-    @NSManaged public var imageURLs: NSObject?
+    @NSManaged public var imageURLs: [String]?
     @NSManaged public var locationDescription: String?
     @NSManaged public var dateCreated: Date
     @NSManaged public var dateLastModified: Date

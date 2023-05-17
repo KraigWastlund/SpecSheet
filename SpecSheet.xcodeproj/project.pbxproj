@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770D48E629F6E37D004D1EC2 /* Spec+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770D48E229F6E37D004D1EC2 /* Spec+CoreDataClass.swift */; };
+		770D48E729F6E37D004D1EC2 /* Spec+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770D48E329F6E37D004D1EC2 /* Spec+CoreDataProperties.swift */; };
+		770D48E829F6E37D004D1EC2 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770D48E429F6E37D004D1EC2 /* User+CoreDataClass.swift */; };
+		770D48E929F6E37D004D1EC2 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770D48E529F6E37D004D1EC2 /* User+CoreDataProperties.swift */; };
+		770D48EC29F6EBE3004D1EC2 /* SpecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770D48EB29F6EBE3004D1EC2 /* SpecView.swift */; };
 		77E08D9A29F492AA001A51FD /* SpecSheetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08D9929F492AA001A51FD /* SpecSheetApp.swift */; };
 		77E08D9C29F492AA001A51FD /* HousesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08D9B29F492AA001A51FD /* HousesView.swift */; };
 		77E08D9E29F492AC001A51FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E08D9D29F492AC001A51FD /* Assets.xcassets */; };
@@ -34,10 +39,15 @@
 		77E08DFF29F4A01B001A51FD /* DBC in Frameworks */ = {isa = PBXBuildFile; productRef = 77E08DFE29F4A01B001A51FD /* DBC */; };
 		77E08E0429F4BF80001A51FD /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08E0229F4BF80001A51FD /* Location+CoreDataClass.swift */; };
 		77E08E0529F4BF80001A51FD /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */; };
-		77E8E12929F5B53600C614DF /* HouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8E12829F5B53600C614DF /* HouseView.swift */; };
+		77E8E12929F5B53600C614DF /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8E12829F5B53600C614DF /* LocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770D48E229F6E37D004D1EC2 /* Spec+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spec+CoreDataClass.swift"; sourceTree = "<group>"; };
+		770D48E329F6E37D004D1EC2 /* Spec+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spec+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		770D48E429F6E37D004D1EC2 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		770D48E529F6E37D004D1EC2 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		770D48EB29F6EBE3004D1EC2 /* SpecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecView.swift; sourceTree = "<group>"; };
 		77E08D9629F492AA001A51FD /* SpecSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E08D9929F492AA001A51FD /* SpecSheetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecSheetApp.swift; sourceTree = "<group>"; };
 		77E08D9B29F492AA001A51FD /* HousesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HousesView.swift; sourceTree = "<group>"; };
@@ -65,7 +75,7 @@
 		77E08DE429F49FAB001A51FD /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		77E08E0229F4BF80001A51FD /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		77E8E12829F5B53600C614DF /* HouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseView.swift; sourceTree = "<group>"; };
+		77E8E12829F5B53600C614DF /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770D48EA29F6EBD5004D1EC2 /* Spec */ = {
+			isa = PBXGroup;
+			children = (
+				770D48EB29F6EBE3004D1EC2 /* SpecView.swift */,
+			);
+			path = Spec;
+			sourceTree = "<group>";
+		};
 		77E08D8D29F492AA001A51FD = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +154,8 @@
 		77E08DB729F4937D001A51FD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				77E8E12729F5B52500C614DF /* House */,
+				770D48EA29F6EBD5004D1EC2 /* Spec */,
+				77E8E12729F5B52500C614DF /* Location */,
 				77E08E0129F4BBA2001A51FD /* Houses */,
 				77E08DAC29F49376001A51FD /* SideNavAndRootModule */,
 			);
@@ -196,18 +215,22 @@
 		77E08E0629F4BF9F001A51FD /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				770D48E229F6E37D004D1EC2 /* Spec+CoreDataClass.swift */,
+				770D48E329F6E37D004D1EC2 /* Spec+CoreDataProperties.swift */,
+				770D48E429F6E37D004D1EC2 /* User+CoreDataClass.swift */,
+				770D48E529F6E37D004D1EC2 /* User+CoreDataProperties.swift */,
 				77E08E0229F4BF80001A51FD /* Location+CoreDataClass.swift */,
 				77E08E0329F4BF80001A51FD /* Location+CoreDataProperties.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		77E8E12729F5B52500C614DF /* House */ = {
+		77E8E12729F5B52500C614DF /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				77E8E12829F5B53600C614DF /* HouseView.swift */,
+				77E8E12829F5B53600C614DF /* LocationView.swift */,
 			);
-			path = House;
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,19 +315,24 @@
 				77E08DE829F49FAB001A51FD /* UIFont+Extension.swift in Sources */,
 				77E08DBA29F493FA001A51FD /* AppContext.swift in Sources */,
 				77E08DFB29F49FAB001A51FD /* Singletons.swift in Sources */,
+				770D48E829F6E37D004D1EC2 /* User+CoreDataClass.swift in Sources */,
 				77E08DC929F4980C001A51FD /* KeyboardReadable.swift in Sources */,
 				77E08DC429F49595001A51FD /* AppSettings.swift in Sources */,
 				77E08E0529F4BF80001A51FD /* Location+CoreDataProperties.swift in Sources */,
 				77E08DA329F492AC001A51FD /* Persistence.swift in Sources */,
-				77E8E12929F5B53600C614DF /* HouseView.swift in Sources */,
+				77E8E12929F5B53600C614DF /* LocationView.swift in Sources */,
 				77E08DB429F49377001A51FD /* SideNavAndRootModuleView.swift in Sources */,
+				770D48E729F6E37D004D1EC2 /* Spec+CoreDataProperties.swift in Sources */,
+				770D48E629F6E37D004D1EC2 /* Spec+CoreDataClass.swift in Sources */,
 				77E08E0429F4BF80001A51FD /* Location+CoreDataClass.swift in Sources */,
 				77E08DC229F49581001A51FD /* AuthCredentials.swift in Sources */,
+				770D48EC29F6EBE3004D1EC2 /* SpecView.swift in Sources */,
 				77E08DC829F49800001A51FD /* RootModuleNavStackView.swift in Sources */,
 				77E08D9C29F492AA001A51FD /* HousesView.swift in Sources */,
 				77E08DF829F49FAB001A51FD /* RegEx.swift in Sources */,
 				77E08DFC29F49FAB001A51FD /* Array+Extension.swift in Sources */,
 				77E08DCB29F49B6F001A51FD /* RootModule.swift in Sources */,
+				770D48E929F6E37D004D1EC2 /* User+CoreDataProperties.swift in Sources */,
 				77E08DB529F49377001A51FD /* RootModuleView.swift in Sources */,
 				77E08DF029F49FAB001A51FD /* UIImage+Extension.swift in Sources */,
 				77E08DBD29F4951D001A51FD /* RESTServer.swift in Sources */,
@@ -442,6 +470,7 @@
 				DEVELOPMENT_TEAM = 3W3QAKTRFB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Spec Sheet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -473,6 +502,7 @@
 				DEVELOPMENT_TEAM = 3W3QAKTRFB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Spec Sheet";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
